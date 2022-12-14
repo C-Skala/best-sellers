@@ -41,12 +41,34 @@ def analysis_one(book_list):
     print(
         f"The least reviewed book in 2018 was {lowest_review_book['name']} with reviews of {lowest_review_book['number_of_reviews']}")
 
+
+
+
+
+
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
+    books_genre_nf = len(list(filter(lambda book: book['genre'] == 'Non Fiction', book_list)))
+    books_genre_f = len(list(filter(lambda book: book['genre'] == 'Fiction', book_list)))
+    if books_genre_nf > books_genre_f:
+        print(
+        f" Top Genre: Non Fiction. occurance: {books_genre_nf} ")
+    elif books_genre_nf < books_genre_f:
+        print(
+        f" Top Genre:Fiction. occurance: {books_genre_f} ")
+
+
+
+
 
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
+
+
+
+
+
 
 
 # BONUS USER STORIES:
