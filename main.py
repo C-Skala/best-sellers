@@ -1,23 +1,31 @@
 from data import data_list
+import statistics
+from time import sleep
 
 
 def run_analysis(books):
     print('')
     print("*******************************************************************")
     print('')
+    sleep(1)
     example_analysis(books)
     print('')
     print("*******************************************************************")
     print('')
+    sleep(1)
     analysis_one(books)
     print('')
     print("*******************************************************************")
     print('')
+    sleep(1)
     analysis_two(books)
     print('')
     print("*******************************************************************")
     print('')
+    sleep(1)
     analysis_three(books)
+    print('')
+    print("*******************************************************************")
 
 
 def example_analysis(book_list):
@@ -43,9 +51,6 @@ def analysis_one(book_list):
 
 
 
-
-
-
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
     books_genre_nf = len(list(filter(lambda book: book['genre'] == 'Non Fiction', book_list)))
@@ -58,12 +63,14 @@ def analysis_two(book_list):
         f" Top Genre:Fiction. occurance: {books_genre_f} ")
 
 
-
-
-
-
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
+    books_most_mvp = [book['name'] for book in book_list]
+    mvp_book = statistics.mode(books_most_mvp)
+    books_most_mvp_number = len(list((filter(lambda book: book['name'] == mvp_book , book_list))))
+    print(
+        f'the book {mvp_book} appeared the most with a total of {books_most_mvp_number} times')
+    
 
 
 
